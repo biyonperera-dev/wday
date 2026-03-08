@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Women's Day</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    text-align: center;
+    padding: 40px;
+    overflow-x: hidden;
+}
+
+/* GLOWING TITLE */
+
+h1{
+    color: #8b004f;
+    font-size: 40px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow: 0 0 5px #fff, 0 0 10px #ff4da6, 0 0 15px #ff4da6;
+    }
+    to{
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff1a8c, 0 0 30px #ff1a8c;
+    }
+}
+
+img{
+    width: 400px;
+    border-radius: 15px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.message{
+    margin-top: 20px;
+    font-size: 20px;
+    color: #333;
+    display: none;
+}
+
+button{
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #8b004f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #b3006b;
+}
+
+footer{
+    margin-top: 40px;
+    font-size: 14px;
+    color: #444;
+}
+
+/* FLOATING ELEMENTS */
+
+.floating{
+    position: fixed;
+    top: -50px;
+    animation: fall linear infinite;
+}
+
+/* CONFETTI */
+
+.confetti{
+    position: fixed;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    animation: fall linear infinite;
+}
+
+/* FALLING ANIMATION */
+
+@keyframes fall{
+    to{
+        transform: translateY(110vh);
+    }
+}
+
+</style>
+
+<script>
+
+function showMessage(){
+    document.getElementById("hiddenMessage").style.display = "block";
+}
+
+/* FLOWERS + HEARTS */
+
+function createFloating(){
+
+    const symbols = ["🌸","💖","💗","🌺","💐"];
+
+    for(let i=0;i<20;i++){
+
+        let element = document.createElement("div");
+        element.className = "floating";
+
+        element.innerHTML = symbols[Math.floor(Math.random()*symbols.length)];
+
+        element.style.left = Math.random()*100 + "vw";
+        element.style.fontSize = (20 + Math.random()*25) + "px";
+        element.style.animationDuration = (6 + Math.random()*6) + "s";
+
+        document.body.appendChild(element);
+    }
+}
+
+/* CONFETTI */
+
+function createConfetti(){
+
+    const colors = ["#ff4d6d","#ffd166","#06d6a0","#118ab2","#ef476f"];
+
+    for(let i=0;i<40;i++){
+
+        let confetti = document.createElement("div");
+        confetti.className = "confetti";
+
+        confetti.style.left = Math.random()*100 + "vw";
+        confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+        confetti.style.animationDuration = (4 + Math.random()*4) + "s";
+
+        document.body.appendChild(confetti);
+    }
+}
+
+window.onload = function(){
+    createFloating();
+    createConfetti();
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Happy International Women's Day Angel 🌸</h1>
+
+<p>celebrating the strongest and the most amazing woman i know</p>
+
+<img src="wday.png" alt="Women's Day Image">
+
+<br>
+
+<button onclick="showMessage()">Click for a Special Message</button>
+
+<div id="hiddenMessage" class="message">
+<p>
+Today is a reminder of how amazing you are and to also remind you that you are the only woman I want to spend the rest of my life with.  
+Thank you for everything you do. Happy Women's Day! I love you bby 💐❤️
+</p>
+</div>
+
+<footer>
+Made with love B. ❤️
+</footer>
+
+</body>
+</html>
